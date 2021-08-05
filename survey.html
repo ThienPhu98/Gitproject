@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <h1>Market Research Survey</h1>
+        <p>Please take a few moment to compete this satisfaction survey</p>
+        <hr  width="30%" align="left" />
+        <p>What is your age range?</p>
+        <select name="age">
+            <option value="18-24">18-24</option>
+            <option value="25-34">25-34</option>
+            <option value="35-50">35-50</option>
+            <option value="50+">50+</option>
+        </select><br>
+        <p>What is your yearly income range?</p>
+        <select name="Yearly income">
+            <option value="$0 - $25,000">$0 - %25,000</option>
+            <option value="$25,000-$50,000">$25,000-$50,000</option>
+            <option value="$50,001-$100,000">$50,001-$100,000</option>
+            <option value="$100,000+">$100,000+</option>
+        </select><br>
+        <p>Gender Identity</p>
+        <input type="radio" name="Male"/>Male <br/>
+        <input type="radio" name="Female"/>Female <br/>
+        <input type="radio" name="Nonbinary"/>Nonbinary <br/>
+        <input type="radio" name="Other"/>Other <input type="text" name="Other" size="20" /><br/>
+        <p>Which of the following products have your purchase in the last 2 months.</p>
+        Please check all that apply. <br>
+        <input type="checkbox" name="Product 1"/>Product 1<br/>
+        <input type="checkbox" name="Product 2"/>Product 1<br/>
+        <input type="checkbox" name="Product 3"/>Product 1<br/>
+        <p>How often would you use our new product?</p>
+        <input type="radio" name="Daily"/>Daily<br/>
+        <input type="radio" name="Weekly"/>Weekly<br/>
+        <input type="radio" name="Monthly"/>Monthly<br/>
+        <p>What would you pay for the new product?</p>
+        $ <input type="text" name="Dollars" size="10" /> Dollars .<input type="text" name="Cents" size="5" /> Cents
+        <p>What features would you like to see in the new product.</p>
+        <textarea cols="50" rows="5"></textarea> <br>
+        <p>Please rate your level of agreement with the following statements.</p>
+        <table border="1" style="width: 60%">
+            <tr>
+              <th></th>
+              <th>Strongly Disagre</th> 
+              <th>Disagre</th> 
+              <th>Agree</th>
+              <th>Strongly Agree</th>
+            </tr>
+            <tr>
+                <td>Our products are priced fairly.</td>
+                <td><input type="radio" name="1"/>1</td> 
+                <td><input type="radio" name="2"/>2</td> 
+                <td><input type="radio" name="3"/>3</td> 
+                <td><input type="radio" name="4"/>4</td> 
+            </tr>
+            <tr>
+                <td>Our products are high quality.</td>
+                <td><input type="radio" name="1"/>1</td> 
+                <td><input type="radio" name="2"/>2</td> 
+                <td><input type="radio" name="3"/>3</td> 
+                <td><input type="radio" name="4"/>4</td> 
+            </tr>
+            <tr>
+                <td>You would recommend our product to a friend or coworker.</td>
+                <td><input type="radio" name="1"/>1</td> 
+                <td><input type="radio" name="2"/>2</td> 
+                <td><input type="radio" name="3"/>3</td> 
+                <td><input type="radio" name="4"/>4</td> 
+            </tr>
+          </table>
+          <h2><input type="submit" name="btSubmit" value="Submit Form"></h2>
+    </form>
+</body>
+</html>
