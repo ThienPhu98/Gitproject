@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <table style="width: 40%; text-align: center;">
+        <tr>
+            <td>Amount</td>
+            <td>From Currency</td>
+            <td>To Currency</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>
+                <input name="Amount" type="text" id="Amount">
+            </th>
+            <th>
+                <select name="From Currency" id="FC">
+                    <option value="VND">VND</option>
+                    <option value="USD">USD</option>
+                </select>
+            </th>
+            <th>
+                <select name="To Currency" id="TC">
+                    <option value="USD">USD</option>
+                    <option value="VND">VND</option>
+                </select>
+            </th>
+            <th><button onclick="Change()">Convert</button></th>
+        </tr>
+    </table>
+<script>
+    function Change() {
+        let x = document.getElementById('Amount').value;
+        let y = document.getElementById('FC').value;
+        let z = document.getElementById('TC').value;
+        if (y == z){
+            alert(x);
+        }
+        if (y == "VND" && z == "USD"){
+            alert(x/23000);
+        }
+        if (y == "USD" && z == "VND"){
+            alert(x*23000);
+        }
+    }
+    </script>
+</body>
+</html>
