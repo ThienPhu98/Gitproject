@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        input{
+            width: 200px;   
+            font-size: 30px;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>What would you choose?</h1>
+    <input type="checkbox" name="Good" value="Good" id="G" onclick="SwG()"> Good <br>
+    <input type="checkbox" name="Fast" value="Fast" id="F" onclick="SwF()"> Fast <br>
+    <input type="checkbox" name="Cheap"  value="Cheap" id="C" onclick="SwC()"> Cheap
+    <script>
+        function SwG() {
+            let g= document.getElementById('G').checked;
+            let f= document.getElementById('F').checked;
+            let c= document.getElementById('C').checked;
+            if (g&&f) {
+                document.getElementById('C').checked = false;
+            } 
+        }
+        function SwF() {
+            let g= document.getElementById('G').checked;
+            let f= document.getElementById('F').checked;
+            let c= document.getElementById('C').checked;
+            if (c&&f) {
+                document.getElementById('G').checked = false;
+            } 
+        }
+        function SwC() {
+            let g= document.getElementById('G').checked;
+            let f= document.getElementById('F').checked;
+            let c= document.getElementById('C').checked;
+            if (g&&c) {
+                document.getElementById('F').checked = false;
+            } 
+        }
+    </script>
+</body>
+</html>
