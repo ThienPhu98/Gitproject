@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,td {
+            border: 1px solid black; border-collapse: collapse;
+            height: 50px;
+            align-content: center;
+        }
+        table input {
+            width: 140px; height: 50px;
+        }
+        button {
+            width: 150px; height: 50px;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Xếp Hạng học lực</h1>
+    <table>
+        <tr>
+            <td>điểm kiểm tra 15p (1)</td>
+            <td>điểm kiểm tra 15p (2)</td>
+            <td>điểm kiểm tra 15p (3)</td>
+            <td>điểm kiểm tra 1 tiết</td>
+            <td>điểm kiểm tra cuối kì</td>
+            <td>Điểm trung bình</td>
+            <td>Xếp loại học lực</td>
+        </tr>
+        <tr>
+            <td><input type="Amount" id="p1"></td>
+            <td><input type="Amount" id="p2"></td>
+            <td><input type="Amount" id="p3"></td>
+            <td><input type="Amount" id="t"></td>
+            <td><input type="Amount" id="k"></td>
+            <td id="tb"></td>
+            <td id="hl"></td>
+        </tr>
+    </table>
+    <br> <button onclick="Check()">Kiểm tra</button>
+    <script>
+        function Check() {
+            let a = parseInt(document.getElementById('p1').value);
+            let b = parseInt(document.getElementById('p2').value);
+            let c = parseInt(document.getElementById('p3').value);
+            let d = parseInt(document.getElementById('t').value);
+            let e = parseInt(document.getElementById('k').value);
+            let x = (a + b + c + d*2 + e*3)/8;
+            document.getElementById('tb').innerHTML = x;
+            if (x>=8) {
+                document.getElementById('hl').innerHTML = ('Giỏi');
+            } else if (x>=6.5) {
+                document.getElementById('hl').innerHTML = ('Khá');
+            } else if (x>=5) {
+                document.getElementById('hl').innerHTML = ('Trung Bình');
+            } else {
+                document.getElementById('hl').innerHTML = ('Yếu');
+            }
+        }
+    </script>
+</body>
+</html>

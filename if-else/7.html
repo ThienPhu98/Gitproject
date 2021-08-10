@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính tiền cước điện thoại</h1>
+    Nhập số phút thực hiện cuộc gọi:  <input type="Amount" id="p">
+    <p>Tiền cước điện thoại:</p>
+    <p>từ 0 đến 2 tiếng: 3.300(VND)</p>
+    <p>từ 2 đến 3 tiếng: 4.300(VND)</p>
+    <p>3 tiếng trở lên: 5.000(VND)</p>
+    <button onclick="Check()">Kiểm tra</button>
+    <p id="Result">Số tiền phải trả:  </p>
+    <script>
+        function Check() {
+            let x = parseInt(document.getElementById('p').value);
+            if (x>180) {
+                document.getElementById('Result').innerHTML += x*5000 +'VND'
+            } else if (x>120) {
+                document.getElementById('Result').innerHTML += x*4300 +'VND'
+            } else {
+                document.getElementById('Result').innerHTML += x*3300 +'VND'
+            }
+        }
+    </script>
+</body>
+</html>

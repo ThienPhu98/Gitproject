@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tìm số lớn nhất</h1>
+    Nhập số thứ nhất: <input type="Amount" id="1"> <br> <br>
+    Nhập số thứ hai: <input type="Amount" id="2"> <br> <br>
+    Nhập số thứ ba: <input type="Amount" id="3"> <br> <br>
+    <Button onclick="check()">Kiểm tra</Button>
+    <p id="Result"></p>
+    <script>
+        function check() {
+            let a = parseInt(document.getElementById('1').value);
+            let b = parseInt(document.getElementById('2').value);
+            let c = parseInt(document.getElementById('3').value);
+            if (a>b && a>c) {
+                document.getElementById('Result').innerHTML = a + ' là số lớn nhất'
+            } else if (b>a && b>c) {
+                document.getElementById('Result').innerHTML = b + ' là số lớn nhất'
+            } else if (c>a && c>b) {
+                document.getElementById('Result').innerHTML = c + ' là số lớn nhất'
+            }
+        }
+    </script>
+</body>
+</html>

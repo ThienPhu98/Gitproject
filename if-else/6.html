@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính số tiền hoa hồng nhận được</h1>
+    Nhập doanh thu ($): <input type="Amount" id="dt"> <br> <br>
+    <p>% Hoa hồng nhận được:</p>
+    <p>Nếu doanh thu trên 20.000$ thì sẽ nhận được hoa hồng 5%</p>
+    <p>Nếu doanh thu trên 2.000$ thì sẽ nhận được hoa hồng 3%</p>
+    <p>Nếu doanh thu dưới 2.000$ thì sẽ nhận được hoa hồng 1%</p>
+    <button onclick="Check()">Kiểm tra</button>
+    <p id="Result">Số tiền nhận được:  </p>
+    <script>
+        function Check() {
+            let x= parseInt(document.getElementById('dt').value);
+            if (x>20000) {
+                document.getElementById('Result').innerHTML += x*(5/100)
+            } else if (x>2000) {
+                document.getElementById('Result').innerHTML += x*(3/100)
+            } else {
+                document.getElementById('Result').innerHTML += x*(1/100)
+            }
+        }
+    </script>
+</body>
+</html>
