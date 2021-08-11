@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Giải phương trình bậc 2</h2>
+    <p> Nhập các tham số cho phương trình ax<sup>2</sup> + bx + c = 0 (a!=0) </p>
+    Nhập a:  <input type="Amount" id="A">  <br> <br>
+    Nhập b:  <input type="Amount" id="B">  <br> <br>
+    Nhập c:  <input type="Amount" id="C">  <br> <br>
+    <button onclick="Check()">Kết quả</button> <br> <br>
+    <p id="Result"></p>
+    <script>
+        function Check() {
+            let a = document.getElementById('A').value;
+            let b = document.getElementById('B').value;
+            let c = document.getElementById('C').value;
+            let x = b*b - 4*a*c;
+            console.log(a);
+            if (a==0) {
+                document.getElementById('Result').innerHTML = 'Phương trình không phải là phương trình bậc 2'
+            } else {
+                if (x<0) {
+                    document.getElementById('Result').innerHTML = 'Phương trình vô nghiệm'
+                } else if (x==0) {
+                    document.getElementById('Result').innerHTML = 'Phương trình có nghiệm kép là: ' + (-b)/a
+                } else if (x>0){
+                    document.getElementById('Result').innerHTML = 'Phương trình có nghiệm là: ' + ((-b)+Math.sqrt(x))/2*a + '  và  ' + ((-b)-Math.sqrt(x))/2*a
+                }
+            }
+        }
+    </script>
+</body>
+</html>

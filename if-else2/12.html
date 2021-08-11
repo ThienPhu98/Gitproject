@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính Lãi Suất Gửi Tiền Tiết Kiệm Ngân Hàng</h1>
+    <select id="DT">
+        <option value="CN">Cá Nhân</option>
+        <option value="DN">Doanh Nghiệp</option>
+    </select>
+    <select id="KH">
+        <option value="0">Không Kì Hạn</option>
+        <option value="1">1 đến 2 tháng</option>
+        <option value="2">3 đến 5 tháng</option>
+        <option value="3">6 đến 8 tháng</option>
+        <option value="4">9 đến 11 tháng</option>
+        <option value="5">12 đến 17 tháng</option>
+        <option value="6">18 đến 24 tháng</option>
+    </select> <br> <br>
+    Nhập số tiền gửi (triệu VND): <input type="Amount" id="num">
+    <button onclick="Check()">Kiểm tra</button> <br>
+    <p id="Result"></p>
+    <script>
+        function Check(){
+            let x = parseInt(document.getElementById('num').value);
+            let y = document.getElementById('DT').value;
+            let z = document.getElementById('KH').value;
+            if (y == 'CN') {
+                if (z == '0') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.001
+                } else if (z == '1') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.031
+                } else if (z == '2') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.034
+                } else if (z == '3') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.04
+                } else if (z == '4') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.04
+                } else if (z == '5') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.056
+                } else if (z == '6') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.056
+                }
+            } else if (y == 'DN') {
+                if (z == '0') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.002
+                } else if (z == '1') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.03
+                } else if (z == '2') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.033
+                } else if (z == '3') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.037
+                } else if (z == '4') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.037
+                } else if (z == '5') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.049
+                } else if (z == '6') {
+                    document.getElementById('Result').innerHTML = 'Số tiền lãi nhận được là (triệu VND): '+ x*0.049
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính Thuế Thu Nhập Cá Nhân</h1>
+    <p>Thuế thu nhập được tính như sau</p>
+    <p>Bậc 1: Đến 5 triệu: 5%</p>
+    <p>Bậc 2: Trên 5 triệu đến 10 triệu: 10% (*-0.25tr)</p>
+    <p>Bậc 3: Trên 10 triệu đến 18 triệu: 15% (*-0.75tr)</p>
+    <p>Bậc 4: Trên 18 triệu đến 32 triệu: 20% (*-1.65tr)</p>
+    <p>Bậc 5: Trên 32 triệu đến 52 triệu: 25% (*-3.25tr)</p>
+    <p>Bậc 6: Trên 52 triệu đến 80 triệu: 30% (*-5.85tr)</p>
+    <p>Bậc 7: Trên 80 triệu: 35% (*-9.85tr)</p>
+    Nhập số tiền thu nhập (triệu VND) <input type="Amount" id="num"> <br> <br>
+    <select id="PT">
+        <option value="C">Có người phụ thuộc (*)</option>
+        <option value="K">Không có người phụ thuộc</option>
+    </select>
+    <Button onclick="Check()">Kiểm tra</Button>
+    <p id="Result">Số tiền thuế cần đóng là (triệu VND): </p>
+    <script>
+        function Check(){
+            let x = parseInt(document.getElementById('num').value);
+            let y = document.getElementById('PT').value;
+            if (y == 'C') {
+                if (x>80) {
+                    document.getElementById('Result').innerHTML += x*0.35 - 9.85
+                } else if (x>52) {
+                    document.getElementById('Result').innerHTML += x*0.30 - 5.85
+                } else if (x>32) {
+                    document.getElementById('Result').innerHTML += x*0.25 - 3.25
+                } else if (x>18) {
+                    document.getElementById('Result').innerHTML += x*0.20 - 1.65
+                } else if (x>10) {
+                    document.getElementById('Result').innerHTML += x*0.15 - 0.75
+                } else if (x > 5) {
+                    document.getElementById('Result').innerHTML += x*0.1 - 0.25
+                } else if (x==5) {
+                    document.getElementById('Result').innerHTML += x*0.05
+                } else {
+                    document.getElementById('Result').innerHTML += 0
+                }
+            } else if (y == 'K') {
+                if (x>80) {
+                    document.getElementById('Result').innerHTML += x*0.35
+                } else if (x>52) {
+                    document.getElementById('Result').innerHTML += x*0.3
+                } else if (x>32) {
+                    document.getElementById('Result').innerHTML += x*0.25
+                } else if (x>18) {
+                    document.getElementById('Result').innerHTML += x*0.2
+                } else if (x>10) {
+                    document.getElementById('Result').innerHTML += x*0.15
+                } else if (x > 5) {
+                    document.getElementById('Result').innerHTML += x*0.1
+                } else if (x==5) {
+                    document.getElementById('Result').innerHTML += x*0.05
+                } else {
+                    document.getElementById('Result').innerHTML += 0
+                }
+            }
+        }
+    </script>
+</body>
+</html>
