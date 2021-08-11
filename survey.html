@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #Under {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <form>
@@ -26,10 +31,11 @@
             <option value="$100,000+">$100,000+</option>
         </select><br>
         <p>Gender Identity</p>
-        <input type="radio" name="Male"/>Male <br/>
-        <input type="radio" name="Female"/>Female <br/>
-        <input type="radio" name="Nonbinary"/>Nonbinary <br/>
-        <input type="radio" name="Other"/>Other <input type="text" name="Other" size="20" /><br/>
+        <input type="radio" name="Gender" onclick="textbox()" id="Male"/>Male <br/>
+        <input type="radio" name="Gender" onclick="textbox()" id="Female"/>Female <br/>
+        <input type="radio" name="Gender" onclick="textbox()" id="Nonbinary"/>Nonbinary <br/>
+        <input type="radio" name="Gender" onclick="textbox()" id="Other"/>Other <input id="Text" type="text" name="Other" size="20" /><br/>
+        <p id="Under">Maximum: 250 characters   Currently Used: 0 characters.</p>
         <p>Which of the following products have your purchase in the last 2 months.</p>
         Please check all that apply. <br>
         <input type="checkbox" name="Product 1"/>Product 1<br/>
@@ -75,6 +81,20 @@
             </tr>
           </table>
           <h2><input type="submit" name="btSubmit" value="Submit Form"></h2>
+          <script>
+              function textbox() {
+                  if (document.getElementById('Male').checked) {
+                    document.getElementById('Under').style.display='none'
+                  } else if ((document.getElementById('Female').checked)) {
+                    document.getElementById('Under').style.display='none'
+                  } else if (document.getElementById('Nonbinary').checked) {
+                    document.getElementById('Under').style.display='none'
+                  } else if (document.getElementById('Other').checked) {
+                    document.getElementById('Under').style.display='block'
+                    document.getElementById('Text').focus()
+                  }
+              }
+          </script>
     </form>
 </body>
 </html>
