@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        td {
+            width: 100px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bảng cửu Chương</h1>
+    <script>
+        let i;
+        let j;
+        document.write('<table>')
+            for (j=2;j<=9;j++){
+                document.write('<tr>')
+                    for (i=2;i<=9;i++) {
+                        let solution = j*i;
+                        document.write('<td>' + i + ' x ' + j + ' = ' + solution);
+                    }
+                document.write('</tr>')
+            }
+        document.write('</table>')
+    </script>
+</body>
+</html>
