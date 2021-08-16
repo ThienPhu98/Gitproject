@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chuyển đổi Feet-Metters</h1>
+    Nhập số liệu <input type="text" id="data">
+    <select id='Input'>
+        <option value="Metter">Metter</option>
+        <option value="Feet">Feet</option>
+    </select> <br> <br>
+    Kết quả <input type="text" id="Result" disabled>
+    <select id="Output">
+        <option value="Feet">Feet</option>
+        <option value="Metter">Metter</option>
+    </select> <br> <br>
+    <button onclick="Change()">Chuyển đổi</button>
+    <script>
+        function Change() {
+            let number = parseInt(document.getElementById('data').value);
+            let Input = document.getElementById('Input').value;
+            let Output = document.getElementById('Output').value;
+            if (Input == Output) {
+                document.getElementById('Result').value = number
+            } else if (Input == 'Metter' && Output == 'Feet') {
+                document.getElementById('Result').value = number*3.279
+            } else if (Input == 'Feet' && Output == 'Metter') {
+                document.getElementById('Result').value = number*0.305
+            }
+        }
+    </script>
+</body>
+</html>

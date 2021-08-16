@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = parseInt(prompt('nhập số đầu tiên: '));
+        let b = parseInt(prompt('nhập số thứ 2: '));
+        let c = parseInt(prompt('nhập số thứ 3: '));
+        let max = Check(a,b,c)
+        function Check (a,b,c) {
+            let max = a ;
+            if (a>b) {
+                if (a>=c){
+                    max = a
+                } else {
+                    max = c
+                }
+            } else if (a<b) {
+                if (b>=c) {
+                    max = b
+                } else {
+                    max = c
+                }
+            }
+            alert(max);
+        }
+    </script>
+</body>
+</html>

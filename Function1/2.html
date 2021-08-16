@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tạo hàm đối số</h1>
+    Nhập vào số a: <input type="Amount" id="NumberA"> <br> <br>
+    nhập vào số b: <input type="Amount" id="NumberB"> <br> <br>
+    <button onclick="Change()">Thực hiện hàm</button>
+    <script>
+        function Change(a,b) {
+            let A = parseInt(document.getElementById('NumberA').value);
+            let B = parseInt(document.getElementById('NumberB').value);
+            console.log(A);
+            console.log(B);
+            a = A + 1;
+            b = B + 1;
+            alert (a + '  và  ' + b);
+        }
+    </script>
+</body>
+</html>

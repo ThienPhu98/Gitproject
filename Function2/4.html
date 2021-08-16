@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x = prompt('nhập vào đây: ');
+        function Check(x) {
+            if (isNaN(x)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if (Check (x)) {
+            alert('chuỗi bạn vừa nhập vào không phải là số')
+        } else {
+            alert('chuỗi bạn vừa nhập vào là số')
+        }
+    </script>
+</body>
+</html>

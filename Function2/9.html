@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let word = ['s','r','t','a','w','v','n','c','h','j','k','u','i','l','m','q','z','p'];
+        let K_word = prompt('nhập vào 1 kí tự: ');
+        let y=0;
+        function Check(K_word) {
+            for (i=0; i<word.length; i++) {
+                if (K_word == word[i]) {
+                    y = i;
+                    return true;
+                }
+            }
+            return false
+        }
+        if (Check(K_word)) {
+            alert ('kí tự ' + K_word + ' nằm ở vị trí ' + y + ' trong chuỗi kí tự')            
+        } else {
+            alert ('không có kí tự ' + K_word + ' trong chuỗi kí tự')
+        }
+    </script>
+</body>
+</html>
