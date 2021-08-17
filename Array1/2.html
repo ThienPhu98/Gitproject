@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="Result"></p>
+    <script>
+        let array = [114,5,10,12,33,27,3,-1,9,-10];
+        let max = array[0];
+        let position;
+        for (i=0; i<array.length; i++){
+            if (array[i] >= max) {
+                max = array[i];
+                position = i;
+            }
+        }
+        document.getElementById('Result').innerHTML = 'phân tử lớn nhất trong mảng là ' + max + ' và nằm ở vị trí ' + position
+    </script>
+</body>
+</html>

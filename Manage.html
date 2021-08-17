@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #Change {
+            position: absolute;
+            left: 240px;
+        }
+        #Delete {
+            position: absolute;
+            left: 350px;
+        }
+        button {
+            font-family: 'Times New Roman', Times, serif;
+            width: 60px;   
+            font-size: 12px;
+            border: none;
+            background-color: rgb(72, 177, 72);
+            color: white;
+            text-align: center;
+        }
+        #div1 {
+            position: absolute;
+            left: 10px;
+            top: 80px;
+        }
+        #div2 {
+            position: absolute;
+            left: 270px;
+            top: 80px;
+        }
+        p {
+            background-color: rgb(230, 245, 97);
+            width: 30%;
+            height: 30px;
+            text-decoration: whitesmoke;
+            margin-top: 1%;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quản lý cửa hàng điện thoại</h1>
+    <div id="div1">
+        <span>Sản phẩm</span> 
+    </div>
+    <div id="div2">
+        <span id='count'></span> <button onclick="Add()">Thêm</button>
+    </div>
+    <br>
+    <script>
+        let arr = ['Samsung','Nokia','Iphone','Oppo','Xiaomi'];
+        for (i=0; i<arr.length; i++) {
+            document.write('<p>' + arr[i] + '<button onclick="Change('+i+')" id="Change">Sửa</button>  <button id="Delete" onclick="Delete('+i+')">Xóa</button> <br> <br> </p>')
+        }
+        document.getElementById('count').innerHTML = arr.length + ' sản phẩm ';
+        function Change(num) {
+            if (confirm('bạn có chắc muốn sửa sản phẩm?')) {
+                let name = prompt('nhập tên mới cho sản phẩm');
+                arr[num] == name;
+            }
+        }
+        function Delete(num){
+            if (confirm('bạn có chắc muốn xóa sản phẩm?')) {
+                arr.splice(num,1);
+            }
+        }
+        function Add() {
+            if (confirm('bạn muốn thêm sản phẩm mới?')) {
+                let name = prompt('hãy nhập sản phẩm mới');
+                arr.push(name);
+            }
+        }
+    </script>
+</body>
+</html>

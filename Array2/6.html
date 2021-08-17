@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="Result"></p>
+    <script>
+        let array = ['l-l','ha',-3,17,'jump','-lo',-12,'-','hihi',10,7,2]
+        let arrNew =[];
+        for (i=0; i<array.length; i++) {
+            let str = array[i].toString();
+            let patt = '-';
+            let pattNew = '_';
+            str = str.replace(patt,pattNew);
+            arrNew.push(str);
+        }
+        document.getElementById('Result').innerHTML= arrNew;
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="Result"></p>
+    <p id="Sum"></p>
+    <script>
+        let array = [22,15,20,17,31,27,36,-14,21,-13];
+        let max = array[0];
+        let sum =0;
+        let position;
+        for (i=0; i<array.length; i++){
+            if (array[i] >= max) {
+                max = array[i];
+                position = i;
+            }
+            sum += array[i];
+        }
+        document.getElementById('Result').innerHTML = 'phân tử lớn nhất trong mảng là ' + max + ' và nằm ở vị trí ' + position + '</br>'
+        document.getElementById('Sum').innerHTML = 'tổng các phần tử trong mảng là: ' + sum;
+    </script>
+</body>
+</html>

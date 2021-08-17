@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            position: absolute;
+            left: 60px;
+        }
+        textarea {
+            position: absolute;
+            left: 30px;
+            top: 80px;
+        }
+    </style>
+</head>
+<body onload="Change()">
+    <form>
+        <label>
+            <h1>Type Anything Slowly</h1>
+            <textarea id="Text" cols="50" rows="10"></textarea>
+        </label>
+    </form>
+    <script>
+        let array = [];
+        let key = '';
+        array[1] = 'I';
+        array[2] = ' ';
+        array[3] = 'a';
+        array[4] = 'm';
+        array[5] = ' ';
+        array[6] = 'S';
+        array[7] = 't';
+        array[8] = 'u';
+        array[9] = 'p';
+        array[10] = 'i';
+        array[11] = 'd';
+        array[12] = '!';
+        function Change() {
+            let text = document.getElementById('Text').value;
+            let j = text.length;
+            if(j>0) {
+                for (i=1; i<=j; i++) {
+                    key = key + array[i];
+                    if (i === 12) {
+                        document.getElementById('Text').value = '';
+                        key = '';
+                    }
+                }
+            }
+            document.getElementById('Text').value = key;
+            key ='';
+            setTimeout('Change()',1);
+        }
+    </script>
+</body>
+</html>
