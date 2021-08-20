@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="game"></div>
+    <script>
+        function Meme(image, top, left, size, speed){
+            this.image = image;
+            this.top = top;
+            this.left = left;
+            this.size = size;
+            this.speed = speed;
+
+            this.getMemeElement = function(){
+                return '<img width="'+ this.size + '"' +
+                ' height="'+ this.size + '"' +
+                ' src="' + this.image +'"' +
+                ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
+            }
+
+            this.moveRight = function() {
+                this.left += this.speed;
+            }
+            this.moveDown = function() {
+                this.top += this.speed;
+            }
+            this.moveUp = function() {
+                this.top -= this.speed;
+            }
+            this.moveLeft = function() {
+                this.left -= this.speed;
+            }
+        }
+
+        function start() {
+            if(meme.left < window.innerWidth - meme.size){
+                meme.moveRight();
+            }
+            if(meme.left > window.innerWidth - meme.size){
+                meme.moveLeft();
+            }
+            if(meme.top < window.innerHeight - meme.size){
+                meme.moveDown();
+            }
+            if(meme.top > window.innerHeight - meme.size){
+                meme.moveUp();
+            }
+            document.getElementById('game').innerHTML = meme.getMemeElement();
+            setTimeout(start, this.speed)
+        }
+
+        let meme = new Meme('Ami.jpg', 20, 30, 200, 1);
+        start();
+
+    </script>
+</body>
+</html>

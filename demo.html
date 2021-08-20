@@ -5,8 +5,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-5.1.0-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin-left: 2%;
+            margin-right: 2%;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Product</h1>
+    <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="NewProduct" class="col-form-label">Name of Product</label>
+        </div>
+        <div class="col-auto">
+          <input type="text" id="NewProduct" class="form-control" aria-describedby="passwordHelpInline">
+        </div>
+        <div class="col-auto">
+            <button type="button" id="Create" onclick="AddProduct" class="btn btn-primary">ADD</button>
+        </div>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody id="Product">
+          <!-- <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td></td>
+            <td><button type="button" class="btn btn-secondary">Secondary</button></td>
+            <td><button type="button" class="btn btn-primary">Primary</button></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr> -->
+        </tbody>
+        <script>
+            let arrProduct = [
+                'Iphone', 'Samsung', 'LG', 'Oppo'
+            ];
+            
+            
+            
+            let str = ``
+            for (i=0; i< arrProduct.length; i++) {
+                str += `
+                <tr>
+                    <th scope="row">${i+1}</th>
+                    <td>${arrProduct[i]}</td>
+                    <td><button type="button" class="btn btn-outline-success"class="btn btn-primary">Edit</button></td>
+                    <td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+                </tr> `;
+            }
+            document.getElementById('Product').innerHTML = str;
+
+            document.getElementById('Create').addEventListener('click',function() {
+                let name = document.getElementById('NewProduct').value;
+                arrProduct.push(name);
+                let count = arrProduct.length;
+                str = `
+                <tr>
+                    <th scope="row">${count}}</th>
+                    <td>${name}</td>
+                    <td><button type="button" class="btn btn-outline-success"class="btn btn-primary">Edit</button></td>
+                    <td><button type="button" class="btn btn-outline-danger">Delete</button></td>
+                </tr> `;
+                document.getElementById('Product').innerHTML += str;
+                document.getElementById('NewProduct').value = '';
+            }) 
+
+            
+
+            
+        </script>
+      </table>
 </body>
 </html>
