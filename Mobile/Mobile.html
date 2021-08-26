@@ -6,144 +6,293 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .switch {
-        position: relative;
-        display: inline-block;
-        width: 90px;
-        height: 34px;
-        }
-
-        .switch input {display:none;}
-
-        .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ca2222;
-        -webkit-transition: .4s;
-        transition: .4s;
-        border-radius: 34px;
-        }
-
-        .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-        border-radius: 50%;
-        }
-
-        input:checked + .slider {
-        background-color: #2ab934;
-        }
-
-        input:focus + .slider {
-        box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(55px);
-        }
-
-        /*------ ADDED CSS ---------*/
-        .slider:after
-        {
-        content:'OFF';
-        color: white;
-        display: block;
-        position: absolute;
-        transform: translate(-50%,-50%);
-        top: 50%;
-        left: 50%;
-        font-size: 10px;
-        font-family: Verdana, sans-serif;
-        }
-
-        input:checked + .slider:after
-        {  
-        content:'ON';
-        }
-        #Iphone-Power {
-            position: absolute;
-            Top: 15px;
-            left: 150px;
-        }
-        #Iphone-Charge {
-            position: absolute;
-            Top: 15px;
-            left: 300px;
-        }
-        #Android-Power {
-            position: absolute;
-            Top: 15px;
-            left: 750px;
-        }
-        #Android-Charge {
-            position: absolute;
-            Top: 15px;
-            left: 900px;
-        }
-        #I-img {
-            position: absolute;
-            width: 450px;
-            height: 450px;
-            top: 80px;
-            left: 60px;
-        }
-        #S-img {
-            position: absolute;
+        .iphone{
+            background-image: url('Iphone.jpg') ;
+            background-position: center;
+            background-repeat: no-repeat;
             width: 500px;
-            height: 450px;
-            top: 80px;
-            left: 600px;
+            position: relative;
+            /* background-size: cover; */
+        
         }
-        #IMobile {
+        .samsung{
+            background-image: url('Samsung.jpg') ;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 500px;
+            position: relative;
+            /* background-size: cover; */
+        }
+        .container{
+            display: flex;
+            height: 600px;
+        }
+        #display_phone1{
+            margin-left: 215px;
+            margin-top: 84px;
+        }
+        #iphone_message{
+            width: 139px;
+        }
+        #Home_iphone {
+            border-radius: 40px;
+            padding: 10px 15px;
             position: absolute;
-            Top: 490px;
-            left: 250px;
+            left: 297px;
+            bottom: 71px;
         }
-        #AMobile {
+        #display_phone2{
+            margin-left: 227.5px;
+            margin-top: 84px;
+        }
+        #samsung_message{
+            width: 139px;
+        }
+        #Home_samsung {
+            border-radius: 40px;
+            padding: 10px 15px;
             position: absolute;
-            Top: 490px;
-            left: 840px;
+            left: 310px;
+            bottom: 71px;
         }
-
+        #charge_samsung{
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            top: 15px;
+            left: 230px;
+        }
+        #charge_iphone{
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            top: 15px;
+            left: 230px;
+        }
+        #iphone_battery {
+            width: 12%;
+            text-align: center;
+        }
+        #samsung_battery {
+            width: 12%;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <div id= 'Iphone-Power'> 
-        <label class="switch"><input type="checkbox" id="Btn-IP"><div class="slider round"></div></label>
+    <div class="container">
+        <div class="iphone" id="Iphone">
+            <div id="display_phone1">
+                <div>
+                    <input type="text" id="iphone_battery"disabled> 
+                    <input type="button" id="iphone_Received" value="Received" onclick="displayMess(this.id)">
+                    <input type="button" id="iphone_Sent" value="Sent" onclick="displayMess(this.id)">
+                </div>
+                <textarea id="iphone_Screen" cols="25" rows="24" disabled></textarea> <br>
+                <input type="text" id="iphone_message"> <button id="iphone_send" onclick="send(this.id)">Send</button>
+            </div>
+            <button id="Home_iphone" onclick="power(this.id)"></button>
+            <input type="button" id="charge_iphone" onclick="charge(this.id,this.value)" value="OFF"> 
+        </div>
+        <div class="samsung" id="Samsung">
+            <div id="display_phone2">
+                <div>
+                    <input type="text" id="samsung_battery"disabled>
+                    <input type="button" id="samsung_Received" value="Received" onclick="displayMess(this.id)">
+                    <input type="button" id="samsung_Sent" value="Sent" onclick="displayMess(this.id)">
+                </div>
+                <textarea id="samsung_Screen" cols="25" rows="24"disabled></textarea> <br>
+                <input type="text" id="samsung_message"><button id="samsung_send" onclick="send(this.id)">Send</button>
+            </div>
+            <button id="Home_samsung" onclick="power(this.id)"></button>
+            <input type="button" id="charge_samsung" onclick="charge(this.id,this.value)" value="OFF"> 
+        </div>
     </div>
-    <div id= 'Iphone-Charge'>
-        <label class="switch"><input type="checkbox" id="Btn-IC"><div class="slider round"></div></label>
-    </div >
-    <div id= 'Android-Power'>
-        <label class="switch"><input type="checkbox" id="Btn-AP"><div class="slider round"></div></label>
-    </div>
-    <div id= 'Android-Charge'>
-        <label class="switch"><input type="checkbox" id="Btn-AC"><div class="slider round"></div></label>
-    </div>
-    <img src="Iphone.jpg" id="I-img">
-    <img src="Samsung.jpg" id="S-img">
-    
-    <div id="IMobile">
-        <textarea id="ScreenI" cols="30" rows="10"></textarea> <br>
-        <input type="Text" id="I-Message"><button onclick="SendMessage()">Send</button>
-    </div>
-    <div id="AMobile">
-        <textarea id="ScreenA" cols="30" rows="10"></textarea>
-        <input type="Text" id="A-Message"><button onclick="SendMessage()">Send</button>
-    </div>
-    <script src="Mobile.js"></script>
+        
+    <script>
+        class Mobile {
+            constructor(name, battery, status) {
+                this.name = name;
+                this.battery = battery;
+                this.status = status;
+                this.memorySent = [];
+                this.memoryReceived = [];
+            }
+            saveReceived(message){
+                this.memoryReceived.push(message);
+            }
+            getReceived(){
+                return this.memoryReceived;
+            }
+            SetBattery() {
+                if(this.battery == 0){
+                    this.status = false;
+                }else{
+                    this.battery = this.battery - 1
+                }
+            }
+            saveSent(message){
+                this.message = message;
+               this.memorySent.push(message);
+            }
+            getSent(){
+                return this.memorySent;
+            }
+            GetBattery() {
+                return this.battery;
+            }
+            SetChargeBattery() {
+                if (this.battery >= 100) {
+                    this.battery = 100;
+                }
+                else {
+                    this.battery += 1;
+                }
+            }
+            SetStatus(status) {
+                this.status = status;
+            }
+            GetStatus() {
+                return this.status;
+            }
+        }
+        let chargePower1 = null;
+        let chargePower2 = null;
+        function charge(id,value){
+            console.log(id)
+            if( id =='charge_iphone'){
+                if(value == 'OFF'){
+                    document.getElementById('charge_iphone').value = 'ON';
+                    chargePower1 = setInterval(function(){
+                        phone1.SetChargeBattery()
+                    },1500);
+                }else {
+                    if(chargePower1 != null){
+                        clearInterval(chargePower1)
+                    }
+                    document.getElementById('charge_iphone').value = 'OFF';
+                }
+            } else if (id =='charge_samsung'){
+                if(value == 'OFF'){
+                    document.getElementById('charge_samsung').value = 'ON';
+                    chargePower2 = setInterval(function(){
+                        phone2.SetChargeBattery()
+                    },1500);
+                }else {
+                    if(chargePower2 != null){
+                        clearInterval(chargePower2)
+                    }
+                    document.getElementById('charge_samsung').value = 'OFF';
+                }
+            }
+        }
+        
+        function displayMess(id){
+            document.getElementById('iphone_Screen').value = '';
+            switch (id) {
+                case 'iphone_Received':
+                    document.getElementById('iphone_Screen').value = '';
+                    let arr = phone1.getReceived();
+                    for(let i = 0 ; i < arr.length; i++){
+                        document.getElementById('iphone_Screen').value += phone2.name + ':' + arr[i] + "\n";
+                    }
+                    break;
+                case 'iphone_Sent':
+                    document.getElementById('iphone_Screen').value = '';
+                    let arr1 = phone1.getSent();
+                    for(let i = 0 ; i < arr1.length; i++){
+                        document.getElementById('iphone_Screen').value += phone1.name + ':' + arr1[i] + "\n";
+                    }
+                    break;
+                case 'samsung_Received':
+                    document.getElementById('samsung_Screen').value = '';
+                    let arr2 = phone2.getReceived();
+                    for(let i = 0 ; i < arr2.length; i++){
+                        document.getElementById('samsung_Screen').value += phone1.name + ':' + arr2[i] + "\n";
+                    }
+                break;
+                case 'samsung_Sent':
+                    document.getElementById('samsung_Screen').value = '';
+                    let arr3 = phone2.getSent();
+                    for(let i = 0 ; i < arr3.length; i++){
+                        document.getElementById('samsung_Screen').value += phone2.name + ':' + arr3[i] + "\n";
+                    }
+                break;
+            }
+        }
+
+        function send(id){
+            console.log(id)
+            if(id == 'iphone_send') {
+                let mess = document.getElementById('iphone_message').value;
+                phone1.saveSent(mess);
+                document.getElementById('samsung_Screen').value +=  'you have new message!!! \n';
+                phone2.saveReceived(mess);
+                document.getElementById('iphone_message').value = '';
+            } else if (id == 'samsung_send') {
+                let mess = document.getElementById('samsung_message').value;
+                phone2.saveSent(mess);
+                document.getElementById('iphone_Screen').value +=  'you have new message!!! \n';
+                phone1.saveReceived(mess);
+                document.getElementById('samsung_message').value = '';
+            }
+        }
+
+        let time1 = null;
+        let time2 = null;
+        function power(id){
+            if(id == "Home_iphone"){
+                if(phone1.GetStatus()){
+                    phone1.SetStatus(false)
+                    document.getElementById('display_phone1').style.display = "none";
+                    if(time1 != null){
+                        clearInterval(time1)
+                    }
+                }else {
+                     time1 =  setInterval(function(){
+                        if(phone1.GetBattery() > 1){
+                            phone1.SetBattery();
+                        }else {
+                            phone1.SetStatus(false);
+                            document.getElementById('display_phone1').style.display = "none";
+                        }
+                        document.getElementById('iphone_battery').value = phone1.GetBattery() +'%';
+                    }, 3000);
+                    phone1.SetStatus(true)
+                    document.getElementById('display_phone1').style.display = "block";
+                }
+            } else if (id == "Home_samsung"){
+                if(phone2.GetStatus()){
+                    phone2.SetStatus(false)
+                    document.getElementById('display_phone2').style.display = "none";
+                    if(time2 != null){
+                        clearInterval(time2)
+                    }
+                }else {
+                    time2 =  setInterval(function(){
+                        if(phone2.GetBattery() > 1){
+                            phone2.SetBattery();
+                        }else {
+                            phone2.SetStatus(false);
+                            document.getElementById('display_phone2').style.display = "none";
+                        }
+                        document.getElementById('samsung_battery').value = phone2.GetBattery() +'%';
+                    }, 3000);
+                    phone2.SetStatus(true)
+                    document.getElementById('display_phone2').style.display = "block";
+                }
+            }
+        }   
+        let phone1 = new Mobile ('iphone',24,false);
+        document.getElementById('iphone_battery').value = phone1.GetBattery() +'%';
+        if(phone1.GetStatus() == false){
+            document.getElementById('display_phone1').style.display = "none";
+        }
+        let phone2 = new Mobile ('samsung',35,false);
+        document.getElementById('samsung_battery').value = phone2.GetBattery() +'%';
+        if(phone2.GetStatus() == false){
+            document.getElementById('display_phone2').style.display = "none";
+        }
+    </script>
 </body>
 </html>

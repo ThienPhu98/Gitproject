@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            text-align: center;
+        }
+
+        button {
+            font-family: 'Times New Roman', Times, serif;
+            width: 50px;
+            height: 50px;
+        }
+
+        #name_btn_Switch {
+            position: absolute;
+            left: 548px;
+            top: 375px;
+            color: rgb(78, 231, 142);
+        }
+
+        #name_btn_Electric {
+            position: absolute;
+            left: 740px;
+            top: 375px;
+            color: rgb(236, 223, 102);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Light">
+        <img src="off.jpg" id="light-off" style='display: initial'>
+        <img src="on.jpg" id="light-on" style="display: none;">
+    </div>
+    <div id="btn">
+        <button id="btn_Switch" value="false" onclick="Turn(this.id)">OFF</button>
+        <button id="btn_Electric" value="false" onclick="Turn(this.id)">OFF</button>
+    </div>
+    <p id="name_btn_Switch">SWITCH</p>
+    <P id="name_btn_Electric">ELECTRIC</P>
+
+
+    <script>
+        class Electronic {
+            constructor(status) {
+                this.status = status;
+            }
+            getStatus() {
+                return this.status;
+            }
+            setStatus(status) {
+                this.status = status;
+            }
+            TurnOn(status) {
+                this.status = true;
+            }
+            TurnOFF(status) {
+                this.status = false;
+            }
+        }
+        let swi = new Electronic(false);
+        let lamp = new Electronic(false);
+        let elec = new Electronic(false);
+
+        function Turn(id) {
+            let status_btn1 = document.getElementById("btn_Switch").value;
+            let status_btn2 = document.getElementById("btn_Electric").value;
+            if (id == 'btn_Switch') {
+                if (status_btn1 == 'false') {
+                    document.getElementById("btn_Switch").value = true;
+                    document.getElementById("btn_Switch").innerHTML = 'ON';
+                    swi.setStatus(true)
+                } else {
+                    document.getElementById("btn_Switch").value = false;
+                    document.getElementById("btn_Switch").innerHTML = 'OFF';
+                    swi.setStatus(false)
+                }
+            } else if (id == 'btn_Electric') {
+                if (status_btn2 == 'false') {
+                    document.getElementById("btn_Electric").value = true;
+                    document.getElementById("btn_Electric").innerHTML = 'ON';
+                    elec.setStatus(true)
+                } else {
+                    document.getElementById("btn_Electric").value = false;
+                    document.getElementById("btn_Electric").innerHTML = 'OFF';
+                    elec.setStatus(false)
+                }
+            }
+            if ((elec.getStatus() == true) && (swi.getStatus() == true)){
+                lamp.setStatus(true);
+                document.getElementById('light-off').style.display = 'none';
+                document.getElementById('light-on').style.display = 'initial';
+            }else {
+                lamp.setStatus(false);
+                document.getElementById('light-off').style.display = 'initial';
+                document.getElementById('light-on').style.display = 'none';
+            }
+
+        }
+
+        // function Turn(id) {
+        //     let status_btn1 = document.getElementById("btn_Switch").value;
+        //     let status_btn2 = document.getElementById("btn_Electric").value;
+        //     if (id == 'btn_Switch') {
+        //         if (status_btn1 == 'false') {
+                    
+        //             document.getElementById("btn_Switch").value = true;
+        //             document.getElementById("btn_Switch").innerHTML = 'ON';
+        //             if (status_btn2 == 'true') {
+        //                 document.getElementById('light-off').style.display = 'none';
+        //                 document.getElementById('light-on').style.display = 'initial';
+        //             }
+        //         } else {
+        //             document.getElementById("btn_Switch").value = false;
+        //             document.getElementById("btn_Switch").innerHTML = 'OFF';
+        //             if (status_btn2 == 'true') {
+        //                 document.getElementById('light-off').style.display = 'initial';
+        //                 document.getElementById('light-on').style.display = 'none';
+        //             }
+        //         }
+        //     } else if (id == 'btn_Electric') {
+        //         if (status_btn2 == 'false') {
+        //             document.getElementById("btn_Electric").value = true;
+        //             document.getElementById('btn_Electric').innerHTML = 'ON';
+        //             if (status_btn1 == 'true') {
+        //                 document.getElementById('light-off').style.display = 'none';
+        //                 document.getElementById('light-on').style.display = 'initial';
+        //             }
+        //         } else {
+        //             document.getElementById("btn_Electric").value = false;
+        //             document.getElementById("btn_Electric").innerHTML = 'OFF';
+        //             document.getElementById('light-off').style.display = 'initial';
+        //             document.getElementById('light-on').style.display = 'none';
+        //         }
+        //     }
+        // }
+        
+    </script>
+</body>
+
+</html>
